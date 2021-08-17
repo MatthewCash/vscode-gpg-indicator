@@ -40,8 +40,6 @@ export function activate(context: vscode.ExtensionContext) {
         }
     });
     context.subscriptions.push(command);
-    keyStatusItem.tooltip = 'Unlock this key';
-    keyStatusItem.command = commandId;
 
     if (vscode.workspace.workspaceFolders !== undefined) {
         const folders = toFolders(vscode.workspace.workspaceFolders);
@@ -51,6 +49,13 @@ export function activate(context: vscode.ExtensionContext) {
     // TODO: Monitor change of activate folder
 
     keyStatusManager.registerUpdateFunction((event) => {
+        vscode.commands.executeCommand(
+            'setContext',
+            'gpgIndicator.isKeyLocked',
+            event.isLocked
+        );
+        keyStatusItem.command = event.isLocked ? commandId : undefined;
+        keyStatusItem.tooltip = event.isLocked ? 'Unlock this key' : undefined;
         const shortId = event.keyId.substr(event.keyId.length - 16);
         const lockIcon = event.isLocked ? 'lock' : 'unlock';
         const status = `$(${lockIcon}) ${shortId}`;

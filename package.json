@@ -30,7 +30,15 @@
                 "command": "gpgIndicator.unlockCurrentKey",
                 "title": "Unlock Current GPG Key"
             }
-        ]
+        ],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "gpgIndicator.unlockCurrentKey",
+					"when": "gpgIndicator.isKeyLocked"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
