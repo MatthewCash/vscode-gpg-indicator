@@ -32,7 +32,7 @@ export function activate(context: vscode.ExtensionContext) {
         if (passphrase === undefined) { return; }
         try {
             await keyStatusManager.unlockCurrentKey(passphrase);
-            vscode.window.showInformationMessage('Key unlocked.');
+            vscode.window.setStatusBarMessage('Key unlocked', 5000);
         } catch (err) {
             if (err instanceof Error) {
                 vscode.window.showErrorMessage(`Failed to unlock: ${err.message}`);
