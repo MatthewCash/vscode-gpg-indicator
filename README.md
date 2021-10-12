@@ -6,6 +6,10 @@ You can also also unlock the key by clicking the status bar element. :D
 
 ![stats bar sample](./images/status-bar.png)
 
+Or unlock the key through command palette.
+
+![unlock command sample](./images/unlock-key-command.png)
+
 ## Features
 
 This extension will show the status of GPG signing key in status bar if your local
@@ -39,11 +43,12 @@ if you like this extension!! 😸
 
 ## Extension Settings
 
-Currently there is no setting available.
+- `gpgIndicator.statusRefreshInterval`
+  - The interval of background key status refresh loop. Default to 30 seconds.
 
 ## Known Issues
 
-Multi-folder workspace is not supported yet.
+See issue page on GitHub if interested.
 
 ## FAQ
 
@@ -61,6 +66,10 @@ and the key ID is the hex string after the algorithm identifier.
 - `kitos9112`
 
 ## Release Notes
+
+### 0.4.0
+
+Unlock key through command palette directly (by MatthewCash), and minor bug fix.
 
 ### 0.3.5
 

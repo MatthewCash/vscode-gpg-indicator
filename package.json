@@ -5,13 +5,14 @@
 	"keywords": [
 		"pgp",
 		"gpg",
-		"commit"
+		"commit",
+		"multi-root ready"
 	],
 	"author": {
 		"name": "Weida Hong",
 		"url": "https://blog.bitisle.net"
 	},
-	"version": "0.3.5",
+	"version": "0.4.0",
 	"publisher": "wdhongtw",
 	"engines": {
 		"vscode": "^1.45.0"
@@ -28,9 +29,21 @@
 		"commands": [
             {
                 "command": "gpgIndicator.unlockCurrentKey",
-                "title": "Unlock Current GPG Key"
-            }
+                "title": "Unlock Current GPG Key",
+				"category": "GPG"
+			}
         ],
+		"configuration": {
+			"title": "GPG Indicator",
+			"properties": {
+				"gpgIndicator.statusRefreshInterval": {
+					"type": "number",
+					"default": 30,
+					"minimum": 1,
+					"description": "Background refresh interval (in seconds) for key status."
+				}
+			}
+		},
 		"menus": {
 			"commandPalette": [
 				{
@@ -49,13 +62,14 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.45.0",
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^7.0.2",
 		"@types/node": "^13.11.0",
-		"eslint": "^6.8.0",
-		"@typescript-eslint/parser": "^2.30.0",
+		"@types/vscode": "^1.45.0",
 		"@typescript-eslint/eslint-plugin": "^2.30.0",
+		"@typescript-eslint/parser": "^2.30.0",
+		"eslint": "^6.8.0",
+		"eslint-plugin-tsdoc": "^0.2.14",
 		"glob": "^7.1.6",
 		"mocha": "^7.1.2",
 		"typescript": "^3.8.3",
